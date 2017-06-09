@@ -1,0 +1,5 @@
+﻿@Master["layout"]
+
+@Section["content"]
+   This is content on the login page
+@EndSection

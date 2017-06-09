@@ -1,0 +1,8 @@
+/home/amir/Documents/workspace/nancy-simple-app/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/amir/Documents/workspace/nancy-simple-app/bin/Debug/Views/layout.sshtml
+/home/amir/Documents/workspace/nancy-simple-app/bin/Debug/nancy-simple-app.exe.mdb
+/home/amir/Documents/workspace/nancy-simple-app/bin/Debug/nancy-simple-app.exe
+/home/amir/Documents/workspace/nancy-simple-app/obj/x86/Debug/nancy-simple-app.exe
+/home/amir/Documents/workspace/nancy-simple-app/obj/x86/Debug/nancy-simple-app.exe.mdb
+/home/amir/Documents/workspace/nancy-simple-app/bin/Debug/Nancy.dll
+/home/amir/Documents/workspace/nancy-simple-app/bin/Debug/Nancy.Hosting.Self.dll

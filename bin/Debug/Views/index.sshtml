@@ -1,0 +1,5 @@
+﻿@Master["layout"]
+
+@Section["content"]
+   <h2>Hello @Model.Firstname @Model.Lastname</h2>
+@EndSection
