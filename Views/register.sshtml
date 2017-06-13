@@ -1,6 +1,5 @@
-﻿@Master["layout"]
+﻿@Master['layout']
 
-
-@Section["content"]
+@Section['content']
    This is content on the register page
 @EndSection

@@ -23,12 +23,17 @@ namespace webserver {
                     return Response.AsRedirect("/login");
                 } else {
                     return View["index.sshtml", Session["user"]];
-
                 }
             };
 
-            Get["/login"] = _ => View["login.sshtml"];
-            Get["/register"] = _ => View["register.sshtml"];
+            Get["/login"] = _ => {
+                return View["login.sshtml", new User {
+                    Firstname = "amir",
+                    Lastname = "hesamian"
+                }];  
+            };
+
+            Get["/register"] = _ => View["register.sshtml", null];
             Get["/logout"] = _ => {
                 Session["user"] = null;
                 return Response.AsRedirect("/");
