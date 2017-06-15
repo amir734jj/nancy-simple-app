@@ -22,18 +22,27 @@ namespace webserver {
                 if (Session["user"] == null) {
                     return Response.AsRedirect("/login");
                 } else {
-                    return View["index.sshtml", Session["user"]];
+                    User x = (User)(Session["user"]);
+                    return View["index.sshtml", new ViewData(x)];
                 }
             };
 
             Get["/login"] = _ => {
-                return View["login.sshtml", new User {
-                    Firstname = "amir",
-                    Lastname = "hesamian"
-                }];  
+                if (Session["user"] == null) {
+                    return View["login.sshtml", new ViewData()];
+                } else {
+                    return Response.AsRedirect("/");
+                }
             };
 
-            Get["/register"] = _ => View["register.sshtml", null];
+            Get["/register"] = _ => {
+                if (Session["user"] == null) {
+                    return View["register.sshtml", new ViewData()];
+                } else {
+                    return Response.AsRedirect("/");
+                }  
+            };
+
             Get["/logout"] = _ => {
                 Session["user"] = null;
                 return Response.AsRedirect("/");
@@ -42,25 +51,25 @@ namespace webserver {
             Post["/register"] = _ => {
                 User user = this.Bind<User>();
 
-                Boolean flag = DBSqlite.AddUser(user);
+                user = DBSqlite.AddUser(user);
 
-                if (flag) {
-                    return Response.AsText("Registered successfully!");
+                if (user != null) {
+                    return Response.AsRedirect("/login");
                 } else {
-                    return Response.AsText("Something is not right!");
+                    return View["register.sshtml", new ViewData("Username is already taken, please try again.")];
                 }
             };
 
             Post["/login"] = _ => {
                 User user = this.Bind<User>();
 
-                Boolean flag = DBSqlite.GetUser(user);
+                user = DBSqlite.GetUser(user);
 
-                if (flag) {
+                if (user != null) {
                     Session["user"] = user;
-                    return Response.AsText("Logged-in successfully!");
+                    return Response.AsRedirect("/");
                 } else {
-                    return Response.AsText("Something is not right!");
+                    return View["login.sshtml", new ViewData("Invalid username or password.")];
                 }
             };
         }
@@ -80,8 +89,6 @@ namespace webserver {
                 });
 
             base.ConfigureConventions(nancyConventions);
-
-
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines  pipelines) {

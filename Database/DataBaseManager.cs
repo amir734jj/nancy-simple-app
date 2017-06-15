@@ -10,24 +10,24 @@ namespace DataBaseManager {
 
         private static String _CONNECTION_STRING_ = "URI=file:db.sqlite";
 
-        public static Boolean AddUser(User user) {
+        public static User AddUser(User user) {
             String sql = String.Format(
                              @"INSERT INTO Users (Firstname, Lastname, Email, Username, Password)
                                VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');",
                              user.Firstname, user.Lastname, user.Email, user.Username, user.Password
                          );
 
-            return ExecuteSQL(sql, true, user) == null;
+            return ExecuteSQL(sql, true, user);
         }
 
-        public static Boolean GetUser(User user) {
+        public static User GetUser(User user) {
             String sql = String.Format(
                              @"SELECT Firstname, Lastname, Email, Username, Password FROM Users
                                WHERE Username='{0}' AND Password='{1}';",
                              user.Username, user.Password
                          );
                 
-            return ExecuteSQL(sql, false, user) == null;
+            return ExecuteSQL(sql, false, user);
         }
 
         public static User ExecuteSQL(String sql, Boolean flag, User userViewModelObject) {

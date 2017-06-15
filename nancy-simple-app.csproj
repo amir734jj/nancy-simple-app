@@ -47,6 +47,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Database\DataBaseManager.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
+    <Compile Include="ViewModels\ViewData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

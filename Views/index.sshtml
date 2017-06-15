@@ -1,5 +1,7 @@
 ﻿@Master['layout']
 
 @Section['content']
-   <h2>Hello @Model.Firstname @Model.Lastname</h2>
+   <h2>Hello @Model.user.Firstname @Model.user.Lastname</h2>
+   <h3>Email: @Model.user.Email</h3>
+   <h3>Username: @Model.user.Username</h3>
 @EndSection

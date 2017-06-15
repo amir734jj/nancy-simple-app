@@ -1,7 +1,17 @@
 ﻿@Master['layout']
 
 @Section['content']
-   This is content on the login page
+  <form action="/login" method="post">
+    <div class="form-group">
+    	<label for="username">Username:</label>
+    	<input type="text" class="form-control" id="username" placeholder="Enter username" name="Username">
+    </div>
+    <div class="form-group">
+    	<label for="password">Password:</label>
+    	<input type="password" class="form-control" id="password" placeholder="Enter password" name="Password">
+    </div>
+  	<button type="submit" class="btn btn-default">Submit</button>
+  </form>
 @EndSection
 
 @Model.Lastname

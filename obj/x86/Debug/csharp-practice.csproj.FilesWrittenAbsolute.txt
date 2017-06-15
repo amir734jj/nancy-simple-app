@@ -1,7 +1,0 @@
-/home/amir/Documents/workspace/csharp-practice/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/home/amir/Documents/workspace/csharp-practice/bin/Debug/csharp-practice.exe.mdb
-/home/amir/Documents/workspace/csharp-practice/bin/Debug/csharp-practice.exe
-/home/amir/Documents/workspace/csharp-practice/obj/x86/Debug/csharp-practice.exe
-/home/amir/Documents/workspace/csharp-practice/obj/x86/Debug/csharp-practice.exe.mdb
-/home/amir/Documents/workspace/csharp-practice/bin/Debug/Nancy.dll
-/home/amir/Documents/workspace/csharp-practice/bin/Debug/Nancy.Hosting.Self.dll

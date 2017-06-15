@@ -15,14 +15,16 @@
                     <a class="navbar-brand" href="/">Nancy website</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    
+                    @If.isLoggedIn
                         <li>
                             <a href="/logout">
                                 <span class="glyphicon glyphicon-user"></span>
                                 Logout
                             </a>
                         </li>
+                    @EndIf
 
+                    @IfNot.isLoggedIn
                         <li>
                             <a href="/register">
                                 <span class="glyphicon glyphicon-user"></span>
@@ -35,12 +37,19 @@
                                 Login
                             </a>
                         </li>
-
+                    @EndIf
                 </ul>
             </div>
         </nav>
         <div class="container">
             <div class="jumbotron">
+
+                @If.hasMessage
+		            <div class="alert alert-warning">
+						@Model.message
+					</div>
+				@EndIf
+
             	@Section['content']
             </div>
         </div>
