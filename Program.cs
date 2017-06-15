@@ -22,8 +22,7 @@ namespace webserver {
                 if (Session["user"] == null) {
                     return Response.AsRedirect("/login");
                 } else {
-                    User x = (User)(Session["user"]);
-                    return View["index.sshtml", new ViewData(x)];
+                    return View["index.sshtml", new ViewData((User)(Session["user"]))];
                 }
             };
 
@@ -40,7 +39,7 @@ namespace webserver {
                     return View["register.sshtml", new ViewData()];
                 } else {
                     return Response.AsRedirect("/");
-                }  
+                }
             };
 
             Get["/logout"] = _ => {
@@ -106,7 +105,7 @@ namespace webserver {
             HostConfiguration hostConfigs = new HostConfiguration() {
                 UrlReservations = new UrlReservations() { CreateAutomatically = true }
             };
-                    
+
 
             using (NancyHost host = new NancyHost(new ApplicationBootstrapper(), hostConfigs, urlList.ToArray())) {
                 StaticConfiguration.DisableErrorTraces = false;
