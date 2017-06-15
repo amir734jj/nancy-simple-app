@@ -1,2 +1,2 @@
 # nancy-simple-app
-Simple Nancy app login and logout practice Edit Edit
+Simple Nancy app login and logout practice
