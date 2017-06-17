@@ -11,7 +11,7 @@ namespace ViewModels {
 
         public String message { get; set; } = "";
 
-        public Boolean hasMassge { get; set; } = false;
+        public Boolean hasMassage { get; set; } = false;
 
         public ViewData() {
             
@@ -30,13 +30,13 @@ namespace ViewModels {
         public ViewData(String message)
             : this() {
             this.message = message;
-            this.hasMassge = String.IsNullOrEmpty(message);
+            this.hasMassage = !String.IsNullOrEmpty(message);
         }
 
         public ViewData(User user, Boolean isLoggedIn, String message)
             : this(user, isLoggedIn) {
             this.message = message;
-            this.hasMassge = String.IsNullOrEmpty(message);
+            this.hasMassage = !String.IsNullOrEmpty(message);
         }
 
     }

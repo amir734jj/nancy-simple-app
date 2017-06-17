@@ -44,7 +44,7 @@
         <div class="container">
             <div class="jumbotron">
 
-                @If.hasMessage
+                @If.hasMassage
 		            <div class="alert alert-warning">
 						@Model.message
 					</div>

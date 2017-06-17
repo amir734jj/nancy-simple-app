@@ -20,7 +20,7 @@ namespace webserver {
 
             Get["/"] = _ => {
                 if (Session["user"] == null) {
-                    return Response.AsRedirect("/login");
+                    return View["index.sshtml", new ViewData()];
                 } else {
                     return View["index.sshtml", new ViewData((User)(Session["user"]))];
                 }
@@ -49,6 +49,7 @@ namespace webserver {
 
             Post["/register"] = _ => {
                 User user = this.Bind<User>();
+                user.AfterInitialization();
 
                 user = DBSqlite.AddUser(user);
 
@@ -61,6 +62,7 @@ namespace webserver {
 
             Post["/login"] = _ => {
                 User user = this.Bind<User>();
+                user.AfterInitialization();
 
                 user = DBSqlite.GetUser(user);
 

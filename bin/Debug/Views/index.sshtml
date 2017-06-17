@@ -1,7 +1,14 @@
 ﻿@Master['layout']
 
 @Section['content']
-   <h2>Hello @Model.user.Firstname @Model.user.Lastname</h2>
-   <h3>Email: @Model.user.Email</h3>
-   <h3>Username: @Model.user.Username</h3>
+    @If.isLoggedIn
+        <h2>Hello @Model.user.Firstname @Model.user.Lastname</h2>
+        <h3>Email: @Model.user.Email</h3>
+        <h3>Username: @Model.user.Username</h3>
+    @EndIf
+
+    @IfNot.isLoggedIn
+        <h2>This is an awesome website!</h2>
+        <h3>Please register or login!</h3>
+    @EndIf
 @EndSection

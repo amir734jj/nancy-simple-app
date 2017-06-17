@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Dynamic;
+using System.Security.Cryptography;
 
 namespace ViewModels {
     
@@ -16,7 +19,6 @@ namespace ViewModels {
         public String Password { get; set; }
 
         public User() {
-            
         }
 
         public User(String Firstname, String Lastname, String Email, String Username, String Password)
@@ -30,6 +32,15 @@ namespace ViewModels {
 
         public override String ToString() {
             return String.Format("[User: Firstname={0}, Lastname={1}, Email={2}, Username={3}, Password={4}]", Firstname, Lastname, Email, Username, Password);
+        }
+
+        public void AfterInitialization() {
+            this.Password = Hash(this.Password);   
+        }
+
+        public static string Hash(string input) {
+            var hash = (new SHA1Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
+            return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
         }
     }
 }
